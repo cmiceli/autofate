@@ -1,0 +1,9 @@
+[package]
+name = "autofate"
+version = "0.1.0"
+authors = ["Chris Miceli <chris@miceli.net.au>"]
+edition = "2018"
+
+[dependencies]
+git2 = "0.13"
+yaml-rust = "0.4.4"

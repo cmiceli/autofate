@@ -1,0 +1,7 @@
+repo:
+  directory: /home/chris/git/ffmpeg
+
+fate:
+  tmp_directory: /home/chris/fate_testing
+  command: "make fate"
+  samples_directory: /home/chris/git/ffmpeg/fate-samples
