@@ -3,5 +3,7 @@ repo:
 
 fate:
   tmp_directory: /home/chris/fate_testing
-  command: "make fate"
+  result_directory: /home/chris/fate_results
+  command: "make -i fate"
+  pre_run_command: "configure"
   samples_directory: /home/chris/git/ffmpeg/fate-samples
