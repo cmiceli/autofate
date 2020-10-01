@@ -1,5 +1,6 @@
 repo:
   directory: /home/chris/git/ffmpeg
+  commit_file: /home/chris/git/autofate/last_commit.txt
 
 fate:
   tmp_directory: /home/chris/fate_testing
@@ -7,3 +8,4 @@ fate:
   command: "make -i fate"
   pre_run_command: "configure"
   samples_directory: /home/chris/git/ffmpeg/fate-samples
+  run_interval_sec: 3600
