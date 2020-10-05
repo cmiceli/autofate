@@ -96,6 +96,9 @@ fn run_commands(run_dir: &str, config: &Yaml, commit_hash: &git2::Oid) -> Result
     std::fs::write(pre_run_output, res.stdout)?;
     let pre_run_output = format!("{}/{}.prerun.stderr", config["fate"]["result_directory"].as_str().unwrap(), commit_hash);
     std::fs::write(pre_run_output, res.stderr)?;
+    if !res.status.success() {
+        return Err(Error::new(ErrorKind::Other, format!("Pre-run command exited with error code: {}", res.status.code().unwrap())));
+    }
     let mut deferred_error: Option<Error> = None;
     info!("Running build/test command: {}", config["fate"]["command"].as_str().unwrap());
     let res = Command::new(cmd_args[0])
