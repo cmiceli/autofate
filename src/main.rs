@@ -14,5 +14,5 @@ fn main() {
     SimpleLogger::new().init().unwrap();
     let config = YamlLoader::load_from_str(&std::fs::read_to_string("config.yaml").expect("Failed to read config.yaml")).expect("Failed to parse YAML file");
     let config = &config[0];
-    fate::main_loop(&config);
+    fate::run(config.clone());
 }
