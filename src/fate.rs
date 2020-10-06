@@ -1,10 +1,8 @@
 use std::path::Path;
-use simple_logger::SimpleLogger;
 use std::collections::HashMap;
 use std::io::{Error, ErrorKind};
 use log::{error, info, trace};
 use std::process::Command;
-use yaml_rust::YamlLoader;
 use yaml_rust::Yaml;
 use std::convert::TryInto;
 use crate::util;
@@ -76,7 +74,6 @@ fn run_commands(run_dir: &str, config: &Yaml, commit_hash: &git2::Oid) -> Result
     if !res.status.success() {
         return Err(Error::new(ErrorKind::Other, format!("Pre-run command exited with error code: {}", res.status.code().unwrap())));
     }
-    let mut deferred_error: Option<Error> = None;
     info!("Running build/test command: {}", config["fate"]["command"].as_str().unwrap());
     let res = Command::new(cmd_args[0])
         .args(&cmd_args[1..])

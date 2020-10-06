@@ -8,7 +8,6 @@ pub mod fate;
 pub mod util;
 use simple_logger::SimpleLogger;
 use yaml_rust::YamlLoader;
-use yaml_rust::Yaml;
 
 
 fn main() {
